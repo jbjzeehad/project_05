@@ -19,13 +19,20 @@ const phTubeVideoCard = phVideos => {
         const videocard = document.createElement('div');
         videocard.classList = `card card-compact bg-gray-100 shadow-xl`;
         videocard.innerHTML = `
+        <div class="1">
         <figure><img src="${showvideo.thumbnail}" alt="videoThumnail" /></figure>
-        <div class="card-body">
+        </div>
+        <div class="card-body grid grid-cols-2">
+        <div class ="prfl-img w-10"><img src="${showvideo.authors[0].profile_picture}" alt="videoThumnail" /></div>
+        <div class="txt-cont">
         <h2 class="card-title">${showvideo.title}</h2>
-        <p></p >
-    <div class="card-actions justify-end">
-    </div>
-        </div >
+        <div class="3 grid grid-cols-2" >
+        <p>${showvideo.authors[0].profile_name}</p>
+        <p>*</p>
+        </div>
+        <p>${showvideo.others.views} views</p>
+        </div>
+        </div>
     `;
         videoShowCard.appendChild(videocard);
     })
