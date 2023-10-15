@@ -16,7 +16,10 @@ const phTubeVideoCard = phVideos => {
     const videoShowCard = document.getElementById('videoCard');
     videoShowCard.textContent = "";
     phVideos.forEach(showvideo => {
-        // console.log(showvideo);
+        const publishtime = showvideo.others.posted_date;
+        console.log(publishtime);
+
+
         const videocard = document.createElement('div');
         videocard.classList = `card card-compact border border-red-500 grid grid-cols-1`;
         videocard.innerHTML = `
@@ -31,7 +34,7 @@ const phTubeVideoCard = phVideos => {
                 <h2 class="border card-title">${showvideo.title}</h2>
                 <div class="border 3 grid grid-cols-2" >
                 <p>${showvideo.authors[0].profile_name}</p>
-                <p>*</p>
+                <p>${showvideo.authors[0].verified}</p>
                 </div>
                 <p class="border">${showvideo.others.views} views</p>
             </div>
@@ -45,10 +48,10 @@ const noDatafound = phVideos => {
     videoShowCard.textContent = "";
     // console.log(showvideo);
     const videocard = document.createElement('div');
-    videocard.classList = `border border-red-500 grid grid-cols-1 my-28 text-center`;
+    videocard.classList = `grid col-span-4  justify-items-center p-5 my-16`;
     videocard.innerHTML = `
-        <img class="w-28 md:justify" src="Icon.png" alt="">
-        <p>Oops!! Sorry, There is no content here</p>
+        <img class="w-28 " src="Icon.png" alt="">
+        <p class='font-bold text-center text-xl md:text-2xl lg:text-3xl text-neutral-900 p-1 md:p-2 lg:p-3'>Oops!! Sorry, There is no content here</p>
     `;
     videoShowCard.appendChild(videocard);
 };
