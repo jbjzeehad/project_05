@@ -10,13 +10,24 @@
 
 </head>
 
-<body>
-    <header>
-
+<body class="bg-white">
+    <header class="bg-white sticky top-0 z-50 lg:px-10 w-full">
+        <div class="grid grid-cols-1 text-center md:grid-cols-3 lg:grid-cols-3 md:py-4 lg:py-8">
+            <img class="w-28 md:justify" src="Logo.png" alt="">
+            <button class="border">Sort by view</button>
+            <button class="border">Blog</button>
+        </div>
+        <hr>
+        <div class="text-center lg:p-6 md:p-4 lg:space-x-5 md:space-x-2">
+            <button id="all" class="border" onclick="categorybutton('1000')">All</button>
+            <button id="music" class="border" onclick="categorybutton('1001')">Music</button>
+            <button id="comedy" class="border" onclick="categorybutton('1003')">Comedy</button>
+            <button id="drawing" class="border" onclick="categorybutton('1005')">Drawing</button>
+        </div>
     </header>
-    <main>
+    <main class="px-10 bg-white">
         <section>
-            <div id="videoCard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div id="videoCard" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
             </div>
         </section>
     </main>
