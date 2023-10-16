@@ -8,23 +8,29 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
+
+
 <body class="bg-white">
-    <header class="bg-white sticky top-0 z-50 md:px-10 lg:px-10 w-full">
-        <div class="grid grid-cols-1 text-center md:grid-cols-3 lg:grid-cols-3 md:py-4 lg:py-8">
-            <img class="w-28 md:justify" src="Logo.png" alt="">
-            <button class="search-btn focus:border focus:border-red-800 search-btn w-32 p-1 text-lg font-medium">Sort
-                by
-                view</button>
-            <button class="focus:border focus:border-red-800 blog-btn w-16 p-1 text-sm font-medium">Blog</button>
+    <header class="bg-white sticky top-0 z-50 px-4 w-full">
+        <!------------------- Navbar Section --------------------->
+        <div
+            class="flex justify-center gap-5 md:flex md:justify-between  lg:flex lg:justify-between py-2 md:py-4 lg:py-8">
+            <img class="w-32 " src="Logo.png" alt="">
+
+            <button
+                class="border col-span-2 search-btn focus:border focus:border-red-800 search-btn w-20 md:w-28 lg:w-32 md:px-2  text-xs md:text-sm lg:text-lg font-medium">Sort
+                by view</button>
+
+            <button
+                class="border focus:border focus:border-red-800 blog-btn w-12 md:w-16 lg:w-20 md:px-2 text-xs md:text-sm lg:text-base font-medium">Blog</button>
         </div>
         <hr>
 
-        <!-- Search Category -->
+        <!----------------- Search Category -------------------->
 
-        <div class="text-center p-2 md:p-3 lg:p-4 space-x-1 md:space-x-2 lg:space-x-4">
+        <div class="flex justify-center p-2 md:p-3 lg:p-4 space-x-1 md:space-x-2 lg:space-x-4">
             <button id="all"
                 class="search-btn focus:border focus:border-red-800  w-16 md:w-20 lg:w-24 text-xs md:text-sm p-1 font-medium"
                 onclick="categorybutton('1000')">All</button>
@@ -40,15 +46,16 @@
         </div>
     </header>
 
-    <!-- Video -->
+    <!--------------------- Video Card Section ----------------->
 
-    <main class="px-10 bg-white">
+    <main class="px-1 bg-white">
         <section>
-            <div id="videoCard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 pb-10">
+            <div id="videoCard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             </div>
 
         </section>
     </main>
+    <script src="tailwind.config.js"></script>
     <script src="phtube.js"></script>
 </body>
 
