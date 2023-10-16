@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        strong {
+            color: darkgrey;
+        }
+    </style>
+</head>
+
+<body class="bg-white p-4 md:p-8 lg:p-10 font-sans">
+    <header class="flex justify-between mr-1 md:mr-6 lg:mr-10 text-2xl md:text-3xl lg:text-5xl font-bold text-black">
+        <h1><span class="text-red-500">Blog</span> Post</h1>
+        <a href="../index.html"><button class="">x</button></a>
+    </header>
+    <main class="pt-5 md:pt-6 lg:pt-10">
+        <div class="text-black mr-1 md:mr-6 lg:mr-10 mb-3 md:mb-4 lg:mb-5">
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold pb-1 md:pb-2 lg:pb-3">Scope of Var,Let and Const
+            </h3>
+            <p class="text-sm md:text-lg lg:text-xl p-1 md:p-3 lg:p-4 font-normal">Scope means where variables are
+                available for use. The
+                scope is global
+                when a <strong>var</strong>
+                variable is declared
+                outside a function. It means any variable that is declared with <strong>var</strong> outside a function
+                block is available for use in the whole window. It is available and can be accessed only within the
+                function.<br><strong>let</strong> is block scoped. A block is a chunk of code bounded by {}. When a
+                variable declared in a block with <strong>let</strong> is only available for use within that
+                block.<br>Like let, <strong>const</strong> declarations can only be accessed within the block they were
+                declared. But <strong>const</strong> can not be updated or re-declared.</p>
+        </div>
+        <div class="text-black mr-1 md:mr-6 lg:mr-10 mb-3 md:mb-4 lg:mb-5">
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold pb-1 md:pb-2 lg:pb-3">Use case of null and
+                undefined</h3>
+            <p class="text-sm md:text-lg lg:text-xl p-1 md:p-3 lg:p-4 font-normal">In JS, <strong>null</strong> is a
+                special value that represents the
+                absence of an object. It is not same as an empty string or zero value. On the other hand,
+                <strong>undefined</strong> is a special value that is assigned to a variable by default.
+                The main difference between null and undefined is that <strong>undefined</strong> used
+                to check if a variable has been assigned a value or not. Where <strong>null</strong> is a value that can
+                be assigned to
+                a variable.
+            </p>
+        </div>
+        </div>
+        <div class="text-black mr-1 md:mr-6 lg:mr-10 mb-3 md:mb-4 lg:mb-5">
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold pb-1 md:pb-2 lg:pb-3">REST API</h3>
+            <p class="text-sm md:text-lg lg:text-xl p-1 md:p-3 lg:p-4 font-normal">API stands for Application
+                Programming Interface. An <strong>API</strong>
+                acts like a link that allows two applications to talk to eaxh other. It is the part of the server that
+                receives requests and sends response. <strong>REST</strong> stands for REpresentational State Transfer.
+                <strong>REST API</strong>s make the communication process with the server easier for us by giving us
+                various HTTP request methods. The most commonly used methods are <strong>GET, POST, PATCH/PUT,
+                    DELETE</strong>. These methods provides by REST allow us perform CRUD operations easily.
+            </p>
+        </div>
+    </main>
+
+    <script src="others/tailwind.config.js"></script>
+    <script src="phtube.js"></script>
+</body>
+
+</html>
