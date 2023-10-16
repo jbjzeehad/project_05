@@ -17,26 +17,25 @@ const phTubeVideoCard = phVideos => {
     videoShowCard.textContent = "";
     phVideos.forEach(showvideo => {
         const publishtime = showvideo.others.posted_date;
-        console.log(publishtime);
-
+        console.log(typeof (publishtime));
+        // convert second to day hours minute
+        const postedDate = convertsecondtodhm(publishtime);
+        console.log(postedDate);
 
         const videocard = document.createElement('div');
-        videocard.classList = `card card-compact border border-red-500 grid grid-cols-1`;
+        videocard.classList = `card card-compact border grid grid-rows-1`;
         videocard.innerHTML = `
-        <div class="1 border">
-            <figure class="w-30" ><img  src="${showvideo.thumbnail}" alt="videoThumnail"/></figure>
+        <div class="1 px-3">
+            <figure><img  src="${showvideo.thumbnail}" alt="videoThumnail"/></figure>
         </div>
-        <div class="border card-body grid grid-cols-2">
-            <div class ="border prfl-img ">
-                <img class="border rounded-full w-10 h-10" src="${showvideo.authors[0].profile_picture}" alt="prf" />
+        <div class="grid card-body grid-cols-5">
+            <div class =" prfl-img ">
+                <img class=" rounded-full w-8 h-8" src="${showvideo.authors[0].profile_picture}" alt="prf" />
             </div>
-            <div class="border txt-cont">
-                <h2 class="border card-title">${showvideo.title}</h2>
-                <div class="border 3 grid grid-cols-2" >
-                <p>${showvideo.authors[0].profile_name}</p>
-                <p>${showvideo.authors[0].verified}</p>
-                </div>
-                <p class="border">${showvideo.others.views} views</p>
+            <div class=" txt-cont col-span-4">
+                <h2 class=" card-title text-base text-black font-bold">${showvideo.title}</h2>
+                        <p class=" col-span-2 text-sm font-normal">${showvideo.authors[0].profile_name} ${showvideo.authors[0].verified}<img class="w-3" src="icon2.png"/></p>
+                <p>${showvideo.others.views} views</p>
             </div>
         </div>
     `;
@@ -68,6 +67,35 @@ const noDatafound = phVideos => {
 //         if ()
 //     })
 // }
+
+function convertsecondtodhm(seconds) {
+    const second = parseInt(seconds);
+    // console.log(second);
+    // console.log(typeof (second));
+    const day = Math.floor(second / 86400);
+    console.log(day);
+    const hour = Math.floor((second % 86400) / 3600);
+    console.log(hour);
+    const minute = Math.floor(((second % 86400) % 3600) / 60);
+    console.log(minute);
+    if (day > 0) {
+        return `${day}day ${hour}hrs ${minute} min ago`;
+
+    }
+    else if (hour > 0) {
+        return `${hour}hrs ${minute} min ago`;
+
+    }
+    else if (minute > 0) {
+        return `${minute} min ago`;
+    }
+    else {
+        return "";
+    }
+}
+
+
+
 
 function categorybutton(catid) {
     loadpage(catid);
