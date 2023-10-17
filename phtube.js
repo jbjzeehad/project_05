@@ -1,38 +1,45 @@
-// console.log("checking the file");
+
+// fetching API with category
+
 const loadpage = async (searchcategory) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${searchcategory}`);
     const data = await response.json();
     const phdata = data.data;
     if (phdata == false) {
-        console.log('No data found');
         noDatafound(phdata);
     }
     else {
         phTubeVideoCard(phdata);
     }
 };
+
+// showing card, thumbnail, time, badges, prfl pic, title, views 
+
 const phTubeVideoCard = phVideos => {
-    // checking the views
-    const a = [];
     const videoShowCard = document.getElementById('videoCard');
     videoShowCard.textContent = "";
     phVideos.forEach(showvideo => {
+
+        // for posted date
+
         const vdview = showvideo.others.views;
-        console.log(vdview);
-        a.push(vdview.replace("K", ""));
         const publishtime = showvideo.others.posted_date;
         const postedDate = convertsecondtodhm(publishtime);
+
+        // for verified badges
+
         let num = 0;
         if (showvideo.authors[0].verified == true) {
             num = 1;
         }
 
+        // for showing card
 
         const videocard = document.createElement('div');
-        videocard.classList = ` card card-compact grid grid-rows-1 gap-1`;
+        videocard.classList = `card card-compact grid grid-rows-1 gap-1`;
         videocard.innerHTML = `
         <div class="relative px-3">
-            <img src="${showvideo.thumbnail}">${postedDate}
+            <img class="thumbimg" src="${showvideo.thumbnail}">${postedDate}
         </div>
         <div class="grid card-body grid-cols-5">
             <div>
@@ -42,14 +49,16 @@ const phTubeVideoCard = phVideos => {
                 <h2 class="card-title text-base text-black font-bold">${showvideo.title}</h2>
                 <p class="text-sm font-normal flex gap-2">${showvideo.authors[0].profile_name}${bluebadge(num)}
                 </p>    
-                <p>${showvideo.others.views} views</p>
+                <p id="views">${showvideo.others.views} views</p>
             </div>
         </div>
     `;
         videoShowCard.appendChild(videocard);
     })
-    console.log(a);
 };
+
+// function for if no data found
+
 const noDatafound = phVideos => {
     const videoShowCard = document.getElementById('videoCard');
     videoShowCard.textContent = "";
@@ -62,6 +71,8 @@ const noDatafound = phVideos => {
     videoShowCard.appendChild(videocard);
 };
 
+// function for blue badge
+
 function bluebadge(value) {
     const badge = value;
     if (badge === 1) {
@@ -71,6 +82,8 @@ function bluebadge(value) {
         return "";
     }
 }
+
+//  function for convert the second into day hour minute
 
 function convertsecondtodhm(seconds) {
     const second = parseInt(seconds);
@@ -93,6 +106,8 @@ function convertsecondtodhm(seconds) {
         return '';
     }
 }
+
+// function for category id
 
 function categorybutton(catid) {
     loadpage(catid);

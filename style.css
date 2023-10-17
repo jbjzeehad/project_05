@@ -1,8 +1,12 @@
+/* search button */
+
 .search-btn {
     background-color: rgb(37, 37, 37, 15%);
     color: rgb(37, 37, 37, 70%);
     border-radius: 4px;
 }
+
+/* blog button */
 
 .blog-btn {
     background-color: rgb(255, 31, 61);
@@ -10,7 +14,17 @@
     border-radius: 4px;
 }
 
+/* thumbnail text */
+
 .thumbtext {
     bottom: 6px;
     right: 20px;
+}
+
+/* thumbnail img */
+
+.thumbimg {
+    width: 300px;
+    height: 150px;
+    object-fit: fill;
 }
