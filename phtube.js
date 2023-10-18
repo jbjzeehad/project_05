@@ -3,22 +3,23 @@
 
 const loadpage = async (searchcategory) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${searchcategory}`);
-    // const data = await response.json();
-    let data = await response.json();
-    let phdata = data.data;
-    console.log(phdata);
-    ///////////////////////////////////////////////////////////////////
-    // console.log(data.others.posted_date);
-    // let viewdatas = [];
-    // phdata.forEach(vda => {
-    // viewdatas = vda.others.views.replace('K', '');
-    // });
+    const data = await response.json();
+    const phdata = data.data;
 
+    // for sort by view button
 
-    const viewdata = phdata.sort((a, b) => b.others.views.replace('K', '') - a.others.views.replace('K', ''));
-    console.log(viewdata);
+    document.getElementById('sorting').addEventListener('click', function () {
+        const viewdata = phdata.sort((a, b) => b.others.views.replace('K', '') - a.others.views.replace('K', ''));
+        if (phdata == false) {
+            noDatafound(phdata);
+        }
+        else {
+            phTubeVideoCard(viewdata);
+        }
+    });
 
-    ///////////////////////////////////////////////////////
+    // data found or not !!
+
     if (phdata == false) {
         noDatafound(phdata);
     }
@@ -36,7 +37,6 @@ const phTubeVideoCard = phVideos => {
 
         // for posted date
 
-        const vdview = showvideo.others.views;
         const publishtime = showvideo.others.posted_date;
         const postedDate = convertsecondtodhm(publishtime);
 
