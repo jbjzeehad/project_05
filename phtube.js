@@ -3,8 +3,22 @@
 
 const loadpage = async (searchcategory) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${searchcategory}`);
-    const data = await response.json();
-    const phdata = data.data;
+    // const data = await response.json();
+    let data = await response.json();
+    let phdata = data.data;
+    console.log(phdata);
+    ///////////////////////////////////////////////////////////////////
+    // console.log(data.others.posted_date);
+    // let viewdatas = [];
+    // phdata.forEach(vda => {
+    // viewdatas = vda.others.views.replace('K', '');
+    // });
+
+
+    const viewdata = phdata.sort((a, b) => b.others.views.replace('K', '') - a.others.views.replace('K', ''));
+    console.log(viewdata);
+
+    ///////////////////////////////////////////////////////
     if (phdata == false) {
         noDatafound(phdata);
     }
